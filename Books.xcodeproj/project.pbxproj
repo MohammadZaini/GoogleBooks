@@ -9,21 +9,41 @@
 /* Begin PBXBuildFile section */
 		CEA7ABD0294CC93200DDAC04 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA7ABCF294CC93200DDAC04 /* AppDelegate.swift */; };
 		CEA7ABD2294CC93200DDAC04 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA7ABD1294CC93200DDAC04 /* SceneDelegate.swift */; };
-		CEA7ABD4294CC93200DDAC04 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA7ABD3294CC93200DDAC04 /* ViewController.swift */; };
-		CEA7ABD7294CC93200DDAC04 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEA7ABD5294CC93200DDAC04 /* Main.storyboard */; };
 		CEA7ABD9294CC93400DDAC04 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEA7ABD8294CC93400DDAC04 /* Assets.xcassets */; };
 		CEA7ABDC294CC93400DDAC04 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEA7ABDA294CC93400DDAC04 /* LaunchScreen.storyboard */; };
+		CEA7ABE5294CE71300DDAC04 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA7ABE3294CE71300DDAC04 /* HomeVC.swift */; };
+		CEA7ABE6294CE71300DDAC04 /* HomeVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEA7ABE4294CE71300DDAC04 /* HomeVC.xib */; };
+		CEA7ABE8294CE75C00DDAC04 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA7ABE7294CE75C00DDAC04 /* HomeViewModel.swift */; };
+		CEA7ABEB294CE79100DDAC04 /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA7ABE9294CE79100DDAC04 /* SearchVC.swift */; };
+		CEA7ABEC294CE79100DDAC04 /* SearchVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEA7ABEA294CE79100DDAC04 /* SearchVC.xib */; };
+		CEA7ABEE294CE7A900DDAC04 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA7ABED294CE7A900DDAC04 /* SearchViewModel.swift */; };
+		CEA7ABF0294CE7C800DDAC04 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA7ABEF294CE7C800DDAC04 /* HomeView.swift */; };
+		CEA7ABF2294CE7D700DDAC04 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA7ABF1294CE7D700DDAC04 /* SearchView.swift */; };
+		CEA7ABF8294CE8A400DDAC04 /* HomeBookCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA7ABF6294CE8A400DDAC04 /* HomeBookCell.swift */; };
+		CEA7ABF9294CE8A400DDAC04 /* HomeBookCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEA7ABF7294CE8A400DDAC04 /* HomeBookCell.xib */; };
+		CEA7ABFC294CE8BA00DDAC04 /* SearchBookCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA7ABFA294CE8BA00DDAC04 /* SearchBookCell.swift */; };
+		CEA7ABFD294CE8BA00DDAC04 /* SearchBookCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEA7ABFB294CE8BA00DDAC04 /* SearchBookCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		CEA7ABCC294CC93200DDAC04 /* Books.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Books.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEA7ABCF294CC93200DDAC04 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CEA7ABD1294CC93200DDAC04 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		CEA7ABD3294CC93200DDAC04 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		CEA7ABD6294CC93200DDAC04 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CEA7ABD8294CC93400DDAC04 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CEA7ABDB294CC93400DDAC04 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CEA7ABDD294CC93400DDAC04 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CEA7ABE3294CE71300DDAC04 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
+		CEA7ABE4294CE71300DDAC04 /* HomeVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeVC.xib; sourceTree = "<group>"; };
+		CEA7ABE7294CE75C00DDAC04 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		CEA7ABE9294CE79100DDAC04 /* SearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVC.swift; sourceTree = "<group>"; };
+		CEA7ABEA294CE79100DDAC04 /* SearchVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchVC.xib; sourceTree = "<group>"; };
+		CEA7ABED294CE7A900DDAC04 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
+		CEA7ABEF294CE7C800DDAC04 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		CEA7ABF1294CE7D700DDAC04 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		CEA7ABF6294CE8A400DDAC04 /* HomeBookCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeBookCell.swift; sourceTree = "<group>"; };
+		CEA7ABF7294CE8A400DDAC04 /* HomeBookCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeBookCell.xib; sourceTree = "<group>"; };
+		CEA7ABFA294CE8BA00DDAC04 /* SearchBookCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBookCell.swift; sourceTree = "<group>"; };
+		CEA7ABFB294CE8BA00DDAC04 /* SearchBookCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchBookCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +76,49 @@
 		CEA7ABCE294CC93200DDAC04 /* Books */ = {
 			isa = PBXGroup;
 			children = (
-				CEA7ABCF294CC93200DDAC04 /* AppDelegate.swift */,
-				CEA7ABD1294CC93200DDAC04 /* SceneDelegate.swift */,
-				CEA7ABD3294CC93200DDAC04 /* ViewController.swift */,
-				CEA7ABD5294CC93200DDAC04 /* Main.storyboard */,
+				CEA7ABF3294CE7DE00DDAC04 /* Delegates */,
+				CEA7ABF4294CE7F800DDAC04 /* HomeViews */,
+				CEA7ABF5294CE83200DDAC04 /* SearchViews */,
 				CEA7ABD8294CC93400DDAC04 /* Assets.xcassets */,
 				CEA7ABDA294CC93400DDAC04 /* LaunchScreen.storyboard */,
 				CEA7ABDD294CC93400DDAC04 /* Info.plist */,
 			);
 			path = Books;
+			sourceTree = "<group>";
+		};
+		CEA7ABF3294CE7DE00DDAC04 /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				CEA7ABCF294CC93200DDAC04 /* AppDelegate.swift */,
+				CEA7ABD1294CC93200DDAC04 /* SceneDelegate.swift */,
+			);
+			path = Delegates;
+			sourceTree = "<group>";
+		};
+		CEA7ABF4294CE7F800DDAC04 /* HomeViews */ = {
+			isa = PBXGroup;
+			children = (
+				CEA7ABE3294CE71300DDAC04 /* HomeVC.swift */,
+				CEA7ABE4294CE71300DDAC04 /* HomeVC.xib */,
+				CEA7ABEF294CE7C800DDAC04 /* HomeView.swift */,
+				CEA7ABE7294CE75C00DDAC04 /* HomeViewModel.swift */,
+				CEA7ABF6294CE8A400DDAC04 /* HomeBookCell.swift */,
+				CEA7ABF7294CE8A400DDAC04 /* HomeBookCell.xib */,
+			);
+			path = HomeViews;
+			sourceTree = "<group>";
+		};
+		CEA7ABF5294CE83200DDAC04 /* SearchViews */ = {
+			isa = PBXGroup;
+			children = (
+				CEA7ABE9294CE79100DDAC04 /* SearchVC.swift */,
+				CEA7ABEA294CE79100DDAC04 /* SearchVC.xib */,
+				CEA7ABF1294CE7D700DDAC04 /* SearchView.swift */,
+				CEA7ABED294CE7A900DDAC04 /* SearchViewModel.swift */,
+				CEA7ABFA294CE8BA00DDAC04 /* SearchBookCell.swift */,
+				CEA7ABFB294CE8BA00DDAC04 /* SearchBookCell.xib */,
+			);
+			path = SearchViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -125,9 +179,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEA7ABFD294CE8BA00DDAC04 /* SearchBookCell.xib in Resources */,
+				CEA7ABEC294CE79100DDAC04 /* SearchVC.xib in Resources */,
 				CEA7ABDC294CC93400DDAC04 /* LaunchScreen.storyboard in Resources */,
+				CEA7ABE6294CE71300DDAC04 /* HomeVC.xib in Resources */,
+				CEA7ABF9294CE8A400DDAC04 /* HomeBookCell.xib in Resources */,
 				CEA7ABD9294CC93400DDAC04 /* Assets.xcassets in Resources */,
-				CEA7ABD7294CC93200DDAC04 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,23 +195,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CEA7ABD4294CC93200DDAC04 /* ViewController.swift in Sources */,
+				CEA7ABFC294CE8BA00DDAC04 /* SearchBookCell.swift in Sources */,
+				CEA7ABEE294CE7A900DDAC04 /* SearchViewModel.swift in Sources */,
+				CEA7ABF0294CE7C800DDAC04 /* HomeView.swift in Sources */,
 				CEA7ABD0294CC93200DDAC04 /* AppDelegate.swift in Sources */,
+				CEA7ABEB294CE79100DDAC04 /* SearchVC.swift in Sources */,
+				CEA7ABF2294CE7D700DDAC04 /* SearchView.swift in Sources */,
+				CEA7ABE5294CE71300DDAC04 /* HomeVC.swift in Sources */,
 				CEA7ABD2294CC93200DDAC04 /* SceneDelegate.swift in Sources */,
+				CEA7ABE8294CE75C00DDAC04 /* HomeViewModel.swift in Sources */,
+				CEA7ABF8294CE8A400DDAC04 /* HomeBookCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		CEA7ABD5294CC93200DDAC04 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				CEA7ABD6294CC93200DDAC04 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		CEA7ABDA294CC93400DDAC04 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -291,7 +347,6 @@
 				INFOPLIST_FILE = Books/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -318,7 +373,6 @@
 				INFOPLIST_FILE = Books/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
