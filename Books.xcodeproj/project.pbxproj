@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE590D8A294E1F5700680A37 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = CE590D89294E1F5700680A37 /* Alamofire */; };
+		CE590D8D294E203C00680A37 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = CE590D8C294E203C00680A37 /* RealmSwift */; };
+		CE590D8F294E217600680A37 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE590D8E294E217600680A37 /* Model.swift */; };
 		CEA7ABD0294CC93200DDAC04 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA7ABCF294CC93200DDAC04 /* AppDelegate.swift */; };
 		CEA7ABD2294CC93200DDAC04 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA7ABD1294CC93200DDAC04 /* SceneDelegate.swift */; };
 		CEA7ABD9294CC93400DDAC04 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEA7ABD8294CC93400DDAC04 /* Assets.xcassets */; };
@@ -23,9 +26,11 @@
 		CEA7ABF9294CE8A400DDAC04 /* HomeBookCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEA7ABF7294CE8A400DDAC04 /* HomeBookCell.xib */; };
 		CEA7ABFC294CE8BA00DDAC04 /* SearchBookCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA7ABFA294CE8BA00DDAC04 /* SearchBookCell.swift */; };
 		CEA7ABFD294CE8BA00DDAC04 /* SearchBookCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEA7ABFB294CE8BA00DDAC04 /* SearchBookCell.xib */; };
+		CED82246294CF8DA00C97C56 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED82245294CF8DA00C97C56 /* NetworkManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CE590D8E294E217600680A37 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		CEA7ABCC294CC93200DDAC04 /* Books.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Books.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEA7ABCF294CC93200DDAC04 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CEA7ABD1294CC93200DDAC04 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -44,6 +49,7 @@
 		CEA7ABF7294CE8A400DDAC04 /* HomeBookCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeBookCell.xib; sourceTree = "<group>"; };
 		CEA7ABFA294CE8BA00DDAC04 /* SearchBookCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBookCell.swift; sourceTree = "<group>"; };
 		CEA7ABFB294CE8BA00DDAC04 /* SearchBookCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchBookCell.xib; sourceTree = "<group>"; };
+		CED82245294CF8DA00C97C56 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +57,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE590D8D294E203C00680A37 /* RealmSwift in Frameworks */,
+				CE590D8A294E1F5700680A37 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,6 +87,8 @@
 				CEA7ABF3294CE7DE00DDAC04 /* Delegates */,
 				CEA7ABF4294CE7F800DDAC04 /* HomeViews */,
 				CEA7ABF5294CE83200DDAC04 /* SearchViews */,
+				CED82245294CF8DA00C97C56 /* NetworkManager.swift */,
+				CE590D8E294E217600680A37 /* Model.swift */,
 				CEA7ABD8294CC93400DDAC04 /* Assets.xcassets */,
 				CEA7ABDA294CC93400DDAC04 /* LaunchScreen.storyboard */,
 				CEA7ABDD294CC93400DDAC04 /* Info.plist */,
@@ -137,6 +147,10 @@
 			dependencies = (
 			);
 			name = Books;
+			packageProductDependencies = (
+				CE590D89294E1F5700680A37 /* Alamofire */,
+				CE590D8C294E203C00680A37 /* RealmSwift */,
+			);
 			productName = Books;
 			productReference = CEA7ABCC294CC93200DDAC04 /* Books.app */;
 			productType = "com.apple.product-type.application";
@@ -165,6 +179,10 @@
 				Base,
 			);
 			mainGroup = CEA7ABC3294CC93200DDAC04;
+			packageReferences = (
+				CE590D88294E1F5700680A37 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				CE590D8B294E203C00680A37 /* XCRemoteSwiftPackageReference "realm-swift" */,
+			);
 			productRefGroup = CEA7ABCD294CC93200DDAC04 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -198,7 +216,9 @@
 				CEA7ABFC294CE8BA00DDAC04 /* SearchBookCell.swift in Sources */,
 				CEA7ABEE294CE7A900DDAC04 /* SearchViewModel.swift in Sources */,
 				CEA7ABF0294CE7C800DDAC04 /* HomeView.swift in Sources */,
+				CE590D8F294E217600680A37 /* Model.swift in Sources */,
 				CEA7ABD0294CC93200DDAC04 /* AppDelegate.swift in Sources */,
+				CED82246294CF8DA00C97C56 /* NetworkManager.swift in Sources */,
 				CEA7ABEB294CE79100DDAC04 /* SearchVC.swift in Sources */,
 				CEA7ABF2294CE7D700DDAC04 /* SearchView.swift in Sources */,
 				CEA7ABE5294CE71300DDAC04 /* HomeVC.swift in Sources */,
@@ -349,6 +369,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -375,6 +396,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -410,6 +432,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		CE590D88294E1F5700680A37 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		CE590D8B294E203C00680A37 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		CE590D89294E1F5700680A37 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CE590D88294E1F5700680A37 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		CE590D8C294E203C00680A37 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CE590D8B294E203C00680A37 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = CEA7ABC4294CC93200DDAC04 /* Project object */;
 }
