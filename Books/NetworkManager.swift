@@ -10,29 +10,22 @@ import Alamofire
 
 class NetworkManager {
     
-    func fetchData() {
+    func fetchData(completion: @escaping (_ fetchedData: Data) -> Void) {
         AF.request("https://www.googleapis.com/books/v1/volumes?q=title&key=").response {(response) in
             
             if response.data != nil {
+                completion(response.data!)
                 
-                self.handleResponse(data: response.data!)
+                
+//                self.handleResponse(data: response.data!)
+                
+                
             }
-            
-            print(response)
             
         }
         
     }
     
-    func handleResponse(data: Data) {
-        do {
-            let response = try JSONDecoder().decode(Books.self, from: data)
-            print(response)
-        } catch {
-            
-            print("Error while parsing")
-        }
-    }
 
     
     

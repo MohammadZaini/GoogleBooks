@@ -8,11 +8,13 @@
 import UIKit
 
 class HomeView: UIView {
-
+    
     @IBOutlet weak var booksCollectionView: UICollectionView!
     @IBOutlet weak var lastSearch: UILabel!
-    
-   
- 
 
+    
+    
+    
+    
+    
 }

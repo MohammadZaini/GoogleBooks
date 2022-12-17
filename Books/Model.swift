@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import RealmSwift
 
 struct Books: Codable {
     var kind : String
@@ -14,12 +15,12 @@ struct Books: Codable {
     
 }
 
-
 struct Items: Codable {
-    var id : String?
+    var id : String
     var volumeInfo : VolumeInfo
     
 }
+
 struct VolumeInfo: Codable {
     var title : String
     var subtitle: String?
@@ -35,4 +36,18 @@ struct ImageLinks: Codable {
     var smallThumbnail: String
     var thumbnail : String
     
+}
+
+class LastSearch: Object {
+    
+    @Persisted(primaryKey: true) var id: String = ""
+    @Persisted var title: String = ""
+    @Persisted var subtitle: String = ""
+    @Persisted var publisher: String = ""
+    @Persisted var publishedDate: String = ""
+    @Persisted var smallThumbnail: String = ""
+    @Persisted var thumbnail: String = ""
+    
+    
+                   
 }

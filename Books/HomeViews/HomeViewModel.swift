@@ -7,25 +7,45 @@
 
 import Foundation
 import UIKit
+import RealmSwift
+import Kingfisher
 
 class HomeViewModel {
     
-    var booksArray : [String]!
+    var booksArray = [Items]()
     
+    var realmArray : Results<LastSearch>?
     
+    let realm = try! Realm()
+    
+    func getRealmObjects() {
+        let any = realm.objects(LastSearch.self)
+        realmArray = any
+//        print(realmArray)
+        
+    }
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+//        print(realmArray?.count)
+        return realmArray?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
       
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "bookCell", for: indexPath) as! HomeBookCell
+        let data = realmArray?[indexPath.row]
         
-        cell.bookTitle.text = "nice job"
+        cell.bookTitle.text = data?.title
+        let url = URL(string: data?.thumbnail ?? "")
+        cell.bookImage.kf.setImage(with: url)
         return cell
         
     }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: collectionView.frame.width * 1 , height: collectionView.frame.height * 0.3)
+    }
+
     
 }

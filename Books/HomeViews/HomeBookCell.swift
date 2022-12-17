@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class HomeBookCell: UICollectionViewCell {
 
@@ -14,6 +15,15 @@ class HomeBookCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+    }
+    
+    
+    func fillData(item: VolumeInfo) {
+        
+        bookTitle.text = item.title
+        let url = URL(string: item.imageLinks.thumbnail)
+        bookImage.kf.setImage(with: url)
+        
     }
 
 }
