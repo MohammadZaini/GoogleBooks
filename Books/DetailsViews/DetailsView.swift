@@ -1,15 +1,15 @@
 //
-//  SearchView.swift
+//  DetailsView.swift
 //  Books
 //
-//  Created by Hello on 12/16/22.
+//  Created by Hello on 12/18/22.
 //
 
 import UIKit
 
-class SearchView: UIView {
+class DetailsView: UIView {
 
     @IBOutlet weak var booksCollectionView: UICollectionView!
-
+    
 
 }

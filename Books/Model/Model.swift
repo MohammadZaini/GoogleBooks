@@ -24,13 +24,12 @@ struct Items: Codable {
 struct VolumeInfo: Codable {
     var title : String
     var subtitle: String?
+    var description : String?
     var publisher : String?
     var publishedDate: String?
     var imageLinks : ImageLinks
     var language: String?
-    
-    
-    
+
 }
 struct ImageLinks: Codable {
     var smallThumbnail: String

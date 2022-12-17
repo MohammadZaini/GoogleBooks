@@ -39,6 +39,7 @@ class HomeVC: UIViewController {
          searchBar.sizeToFit()
          searchBar.isTranslucent = false
          navigationItem.titleView = searchBar
+        searchBar.delegate = self
         
         homeView.booksCollectionView.dataSource = self
         homeView.booksCollectionView.delegate   = self
@@ -104,6 +105,11 @@ extension HomeVC : UICollectionViewDataSource {
 extension HomeVC : UICollectionViewDelegate {
     
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let selectedItem = viewModel.realmArray![indexPath.item]
+    
+    }
+    
 }
 
 extension HomeVC: UICollectionViewDelegateFlowLayout {
@@ -124,14 +130,16 @@ extension HomeVC: UICollectionViewDelegateFlowLayout {
 extension HomeVC: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        <#code#>
+        
     }
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-        <#code#>
+        let vc = SearchVC()
+//        present(vc, animated: true)
+        self.navigationController?.pushViewController(vc , animated: true)
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        <#code#>
+        
     }
     
 }

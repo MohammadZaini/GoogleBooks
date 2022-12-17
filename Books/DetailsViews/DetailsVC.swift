@@ -9,14 +9,20 @@ import UIKit
 
 class DetailsVC: UIViewController {
 
+    var volumeInfo: VolumeInfo?
+    
+    @IBOutlet weak var bookImage: UIImageView!
+    @IBOutlet weak var publisherName: UILabel!
+    @IBOutlet weak var publishedDate: UILabel!
+    @IBOutlet weak var bookDescription: UITextView!
+    
+ 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        searchBar.searchBarStyle = UISearchBar.Style.default
-        searchBar.placeholder = " Search for books"
-        searchBar.sizeToFit()
-        searchBar.isTranslucent = false
-        navigationItem.titleView = searchBar
+        
+        publisherName.text = volumeInfo?.publisher
+        publishedDate.text = volumeInfo?.publishedDate
+        bookDescription.text = volumeInfo?.description
        
     }
 
