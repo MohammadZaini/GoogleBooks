@@ -6,8 +6,43 @@
 //
 
 import Foundation
+import UIKit
 
 class SearchViewModel {
     
+    var searchArray = [Items]()
     
+    
+    
+    
+    
+ 
+
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        print("The count is:\(searchArray.count)")
+        return searchArray.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "bookCell", for: indexPath) as! SearchBookCell
+        
+        let data = searchArray[indexPath.item]
+        cell.bookTitle.text = data.volumeInfo.title
+        let url = URL(string: data.volumeInfo.imageLinks.smallThumbnail)
+        cell.bookImage.kf.setImage(with: url)
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: collectionView.frame.width * 1 , height: collectionView.frame.height * 0.3)
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 1
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 0.1
+    }
+
 }

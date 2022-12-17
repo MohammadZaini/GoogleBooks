@@ -37,7 +37,7 @@ class HomeViewModel {
         let data = realmArray?[indexPath.row]
         
         cell.bookTitle.text = data?.title
-        let url = URL(string: data?.thumbnail ?? "")
+        let url = URL(string: data?.smallThumbnail ?? "")
         cell.bookImage.kf.setImage(with: url)
         return cell
         

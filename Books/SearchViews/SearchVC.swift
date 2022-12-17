@@ -24,6 +24,7 @@ class SearchVC: UIViewController {
         searchBar.sizeToFit()
         searchBar.isTranslucent = false
         navigationItem.titleView = searchBar
+        searchBar.delegate = self
         
         
         searchView.booksCollectionView.delegate = self
@@ -31,20 +32,34 @@ class SearchVC: UIViewController {
         searchView.booksCollectionView.register(UINib(nibName: "SearchBookCell", bundle: nil), forCellWithReuseIdentifier: "bookCell")
         
     }
+    
+    func hanldeResponse(data: Data) {
+        do {
+            let results = try JSONDecoder().decode(Books.self, from: data)
+            viewModel.searchArray = results.items
+            searchView.booksCollectionView.reloadData()
+            
+            print(viewModel.searchArray)
+            
+        } catch {
+            print("error while parsing")
+            
+        }
+        
+        
+    }
+    
 
 
 }
 
 extension SearchVC: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        viewModel.collectionView(collectionView, numberOfItemsInSection: section)
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "bookCell", for: indexPath) as! SearchBookCell
-        cell.bookTitle.text = "Amazing Book"
-        cell.bookImage.image = UIImage(systemName: "eraser")
-        return cell
+        viewModel.collectionView(collectionView, cellForItemAt: indexPath)
     }
     
     
@@ -57,16 +72,29 @@ extension SearchVC: UICollectionViewDelegate {
 
 extension SearchVC: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.frame.width * 1 , height: collectionView.frame.height * 0.3)
+        viewModel.collectionView(collectionView, layout: collectionViewLayout, sizeForItemAt: indexPath)
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 1
+        viewModel.collectionView(collectionView, layout: collectionViewLayout, minimumLineSpacingForSectionAt: section)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 0.1
+        viewModel.collectionView(collectionView, layout: collectionViewLayout, minimumInteritemSpacingForSectionAt: section)
     }
 
     
+    
+}
+
+extension SearchVC: UISearchBarDelegate {
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        if let text = searchBar.text {
+            
+            NetworkManager().fetchData(title: text) { fetchedData in
+                self.hanldeResponse(data: fetchedData)
+            }
+        }
+    }
     
 }

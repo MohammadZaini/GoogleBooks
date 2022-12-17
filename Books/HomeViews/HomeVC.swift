@@ -25,7 +25,7 @@ class HomeVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     
-        NetworkManager().fetchData { fetchedData in
+        NetworkManager().fetchData(title: "great") { fetchedData in
             self.handleResponse(data: fetchedData)
         }
         
