@@ -58,7 +58,7 @@ class HomeVC: UIViewController {
             
             for book in results.items {
                 
-//                try realm.write {
+                try realm.write {
                     
                     
                     
@@ -72,8 +72,8 @@ class HomeVC: UIViewController {
                     realmObj.thumbnail = book.volumeInfo.imageLinks.thumbnail
                     
                     
-//                    realm.add(realmBook)
-//                }
+                    realm.add(realmObj, update: .all)
+                }
             }
             
             
@@ -102,6 +102,20 @@ extension HomeVC : UICollectionViewDataSource {
     
 }
 
+
+extension HomeVC: SearchVCDelegate {
+    func updateLastSearch(searchKey: String) {
+//        let vc = SearchVC()
+//        vc.delegate = self
+        print("the searchc key is: \(searchKey)")
+        homeView.lastSearch.text = searchKey
+    }
+    
+ 
+    
+    
+    
+    }
 extension HomeVC : UICollectionViewDelegate {
     
     
@@ -134,6 +148,7 @@ extension HomeVC: UISearchBarDelegate {
     }
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         let vc = SearchVC()
+        vc.delegate = self
 //        present(vc, animated: true)
         self.navigationController?.pushViewController(vc , animated: true)
     }

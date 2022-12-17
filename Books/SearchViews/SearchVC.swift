@@ -7,10 +7,18 @@
 
 import UIKit
 
-class SearchVC: UIViewController {
+
+protocol SearchVCDelegate: AnyObject {
     
+    func updateLastSearch(searchKey: String)
+}
+
+class SearchVC: UIViewController{
+ 
     lazy var searchBar: UISearchBar = UISearchBar()
     private let viewModel = SearchViewModel()
+    
+    var delegate : SearchVCDelegate?
     
     @IBOutlet var searchView: SearchView!
     
@@ -39,7 +47,6 @@ class SearchVC: UIViewController {
             viewModel.searchArray = results.items
             searchView.booksCollectionView.reloadData()
             
-            print(viewModel.searchArray)
             
         } catch {
             print("error while parsing")
@@ -90,7 +97,8 @@ extension SearchVC: UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         if let text = searchBar.text {
-            
+    
+            self.delegate?.updateLastSearch(searchKey: text)
             NetworkManager().fetchData(title: text) { fetchedData in
                 self.hanldeResponse(data: fetchedData)
             }
