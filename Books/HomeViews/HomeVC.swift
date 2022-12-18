@@ -145,8 +145,8 @@ extension HomeVC: UISearchBarDelegate {
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         let vc = SearchVC()
         vc.delegate = self
-//                present(vc, animated: true)
-        self.navigationController?.pushViewController(vc , animated: true)
+        let nav = UINavigationController(rootViewController: vc)
+        present(nav, animated: true)
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {

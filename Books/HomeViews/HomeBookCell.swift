@@ -22,7 +22,8 @@ class HomeBookCell: UICollectionViewCell {
         
         bookTitle.text = item.volumeInfo.title
         let url = URL(string: item.volumeInfo.imageLinks.thumbnail)
-        bookImage.kf.setImage(with: url)
+        bookImage.kf.indicatorType = .activity
+        bookImage.kf.setImage(with: url, options: [.transition(.fade(0.7))])
         
     }
 

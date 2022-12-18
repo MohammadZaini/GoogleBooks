@@ -44,7 +44,6 @@ class SearchViewModel {
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        print("The count is:\(searchArray.count)")
         return searchArray.count
     }
     

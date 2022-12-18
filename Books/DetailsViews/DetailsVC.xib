@@ -72,7 +72,7 @@
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="kingfisher-6.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="Dd2-8m-Afu">
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Dd2-8m-Afu">
                     <rect key="frame" x="10" y="86" width="114" height="199"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="114" id="RTj-1d-1fd"/>
@@ -115,7 +115,6 @@
         </view>
     </objects>
     <resources>
-        <image name="kingfisher-6.jpg" width="250" height="250"/>
         <systemColor name="labelColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
