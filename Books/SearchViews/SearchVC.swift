@@ -99,6 +99,7 @@ extension SearchVC: UISearchBarDelegate {
         if let text = searchBar.text {
     
             self.delegate?.updateLastSearch(searchKey: text)
+            
             NetworkManager().fetchData(title: text) { fetchedData in
                 self.hanldeResponse(data: fetchedData)
             }

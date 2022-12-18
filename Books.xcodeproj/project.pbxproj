@@ -33,6 +33,7 @@
 		CEE26499294E680C0049DADD /* DetailsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE26497294E680C0049DADD /* DetailsCell.swift */; };
 		CEE2649A294E680C0049DADD /* DetailsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEE26498294E680C0049DADD /* DetailsCell.xib */; };
 		CEE2649C294E68DD0049DADD /* DetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE2649B294E68DD0049DADD /* DetailsView.swift */; };
+		CEE264A1294E89D90049DADD /* DetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE264A0294E89D90049DADD /* DetailsViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,6 +62,7 @@
 		CEE26497294E680C0049DADD /* DetailsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsCell.swift; sourceTree = "<group>"; };
 		CEE26498294E680C0049DADD /* DetailsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailsCell.xib; sourceTree = "<group>"; };
 		CEE2649B294E68DD0049DADD /* DetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsView.swift; sourceTree = "<group>"; };
+		CEE264A0294E89D90049DADD /* DetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +152,7 @@
 				CEE26493294E67800049DADD /* DetailsVC.swift */,
 				CEE26494294E67800049DADD /* DetailsVC.xib */,
 				CEE2649B294E68DD0049DADD /* DetailsView.swift */,
+				CEE264A0294E89D90049DADD /* DetailsViewModel.swift */,
 				CEE26497294E680C0049DADD /* DetailsCell.swift */,
 				CEE26498294E680C0049DADD /* DetailsCell.xib */,
 			);
@@ -261,6 +264,7 @@
 				CEE26499294E680C0049DADD /* DetailsCell.swift in Sources */,
 				CEA7ABFC294CE8BA00DDAC04 /* SearchBookCell.swift in Sources */,
 				CEA7ABEE294CE7A900DDAC04 /* SearchViewModel.swift in Sources */,
+				CEE264A1294E89D90049DADD /* DetailsViewModel.swift in Sources */,
 				CEA7ABF0294CE7C800DDAC04 /* HomeView.swift in Sources */,
 				CE590D8F294E217600680A37 /* Model.swift in Sources */,
 				CEA7ABD0294CC93200DDAC04 /* AppDelegate.swift in Sources */,

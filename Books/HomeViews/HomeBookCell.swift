@@ -18,10 +18,10 @@ class HomeBookCell: UICollectionViewCell {
     }
     
     
-    func fillData(item: VolumeInfo) {
+    func setUpCell(item: Items) {
         
-        bookTitle.text = item.title
-        let url = URL(string: item.imageLinks.thumbnail)
+        bookTitle.text = item.volumeInfo.title
+        let url = URL(string: item.volumeInfo.imageLinks.thumbnail)
         bookImage.kf.setImage(with: url)
         
     }

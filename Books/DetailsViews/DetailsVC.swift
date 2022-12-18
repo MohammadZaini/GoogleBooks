@@ -6,35 +6,29 @@
 //
 
 import UIKit
+import Kingfisher
 
 class DetailsVC: UIViewController {
 
     var volumeInfo: VolumeInfo?
     
-    @IBOutlet weak var bookImage: UIImageView!
-    @IBOutlet weak var publisherName: UILabel!
-    @IBOutlet weak var publishedDate: UILabel!
-    @IBOutlet weak var bookDescription: UITextView!
-    
- 
+    @IBOutlet var detailsView: DetailsView!
     override func viewDidLoad() {
-        super.viewDidLoad()
         
-        publisherName.text = volumeInfo?.publisher
-        publishedDate.text = volumeInfo?.publishedDate
-        bookDescription.text = volumeInfo?.description
-       
+        super.viewDidLoad()
+        updateUI()
+        
     }
-
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    func updateUI() {
+        
+        detailsView.publisherName.text = volumeInfo?.publisher
+        detailsView.publishedDate.text = volumeInfo?.publishedDate
+        detailsView.bookDescription.text = volumeInfo?.description
+        let url = URL(string: volumeInfo?.imageLinks.smallThumbnail ?? "")
+        detailsView.bookImage.kf.setImage(with: url)
     }
-    */
+    
+  
 
 }

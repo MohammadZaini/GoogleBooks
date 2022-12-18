@@ -37,7 +37,7 @@ struct ImageLinks: Codable {
     
 }
 
-class LastSearch: Object {
+class RealmBooks: Object {
     
     @Persisted(primaryKey: true) var id: String = ""
     @Persisted var title: String = ""
@@ -47,6 +47,9 @@ class LastSearch: Object {
     @Persisted var smallThumbnail: String = ""
     @Persisted var thumbnail: String = ""
     
+}
+
+class LastSearchKey: Object {
+    @Persisted var lastSearch: String = ""
     
-                   
 }

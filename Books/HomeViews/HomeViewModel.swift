@@ -14,12 +14,12 @@ class HomeViewModel {
     
     var booksArray = [Items]()
     
-    var realmArray : Results<LastSearch>?
+    var realmArray : Results<RealmBooks>?
     
     let realm = try! Realm()
     
     func getRealmObjects() {
-        let any = realm.objects(LastSearch.self)
+        let any = realm.objects(RealmBooks.self)
         realmArray = any
 //        print(realmArray)
         
@@ -28,17 +28,14 @@ class HomeViewModel {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
 //        print(realmArray?.count)
-        return realmArray?.count ?? 0
+        return booksArray.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
       
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "bookCell", for: indexPath) as! HomeBookCell
-        let data = realmArray?[indexPath.row]
-        
-        cell.bookTitle.text = data?.title
-        let url = URL(string: data?.smallThumbnail ?? "")
-        cell.bookImage.kf.setImage(with: url)
+        let item = booksArray[indexPath.row]
+        cell.setUpCell(item: item)
         return cell
         
     }

@@ -27,10 +27,8 @@ class SearchViewModel {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "bookCell", for: indexPath) as! SearchBookCell
         
-        let data = searchArray[indexPath.item]
-        cell.bookTitle.text = data.volumeInfo.title
-        let url = URL(string: data.volumeInfo.imageLinks.smallThumbnail)
-        cell.bookImage.kf.setImage(with: url)
+        let item = searchArray[indexPath.item]
+        cell.setUpCell(item: item)
         return cell
     }
     

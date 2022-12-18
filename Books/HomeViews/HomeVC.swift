@@ -15,16 +15,16 @@ protocol HomeVCDelegate {
 }
 
 class HomeVC: UIViewController {
-
+    
     @IBOutlet var homeView: HomeView!
     private let viewModel = HomeViewModel()
     
     
     let realm = try! Realm()
-    lazy var searchBar: UISearchBar = UISearchBar()
+    var searchBar: UISearchBar = UISearchBar()
     override func viewDidLoad() {
         super.viewDidLoad()
-    
+        
         NetworkManager().fetchData(title: "great") { fetchedData in
             self.handleResponse(data: fetchedData)
         }
@@ -34,11 +34,11 @@ class HomeVC: UIViewController {
         homeView.lastSearch.layer.cornerRadius = 25
         homeView.lastSearch.clipsToBounds = true
         
-         searchBar.searchBarStyle = UISearchBar.Style.default
-         searchBar.placeholder = " Search for books"
-         searchBar.sizeToFit()
-         searchBar.isTranslucent = false
-         navigationItem.titleView = searchBar
+        searchBar.searchBarStyle = UISearchBar.Style.default
+        searchBar.placeholder = " Search for books"
+        searchBar.sizeToFit()
+        searchBar.isTranslucent = false
+        navigationItem.titleView = searchBar
         searchBar.delegate = self
         
         homeView.booksCollectionView.dataSource = self
@@ -54,6 +54,7 @@ class HomeVC: UIViewController {
         do {
             let results = try JSONDecoder().decode(Books.self, from: data)
             viewModel.booksArray = results.items
+            homeView.booksCollectionView.reloadData()
             print(viewModel.booksArray.count)
             
             for book in results.items {
@@ -62,8 +63,8 @@ class HomeVC: UIViewController {
                     
                     
                     
-                    let realmObj = LastSearch()
-                
+                    let realmObj = RealmBooks()
+                    
                     realmObj.id = book.id
                     realmObj.title = book.volumeInfo.title
                     realmObj.subtitle = book.volumeInfo.subtitle ?? ""
@@ -83,10 +84,10 @@ class HomeVC: UIViewController {
             print("Error while parsing")
         }
     }
-
+    
     
     var api = "https://www.googleapis.com/books/v1/volumes?q=title&key= https://www.googleapis.com/books/v1/volumes/id?key= "
-
+    
 }
 
 extension HomeVC : UICollectionViewDataSource {
@@ -105,23 +106,22 @@ extension HomeVC : UICollectionViewDataSource {
 
 extension HomeVC: SearchVCDelegate {
     func updateLastSearch(searchKey: String) {
-//        let vc = SearchVC()
-//        vc.delegate = self
         print("the searchc key is: \(searchKey)")
         homeView.lastSearch.text = searchKey
     }
     
- 
-    
-    
-    
-    }
+}
 extension HomeVC : UICollectionViewDelegate {
     
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let selectedItem = viewModel.realmArray![indexPath.item]
-    
+        let item = viewModel.booksArray[indexPath.item]
+        let vc = DetailsVC()
+        vc.volumeInfo = item.volumeInfo
+//        vc.detailsView.setUpItems(item: item)
+       
+        self.navigationController?.pushViewController(vc, animated: true)
+        
     }
     
 }
@@ -149,7 +149,7 @@ extension HomeVC: UISearchBarDelegate {
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         let vc = SearchVC()
         vc.delegate = self
-//        present(vc, animated: true)
+//                present(vc, animated: true)
         self.navigationController?.pushViewController(vc , animated: true)
     }
     
