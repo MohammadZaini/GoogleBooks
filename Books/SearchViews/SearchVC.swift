@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+import RealmSwift
 
 protocol SearchVCDelegate: AnyObject {
     
@@ -15,6 +15,7 @@ protocol SearchVCDelegate: AnyObject {
 
 class SearchVC: UIViewController{
  
+    private let realm = try! Realm()
     lazy var searchBar: UISearchBar = UISearchBar()
     private let viewModel = SearchViewModel()
     
@@ -44,8 +45,26 @@ class SearchVC: UIViewController{
     func hanldeResponse(data: Data) {
         do {
             let results = try JSONDecoder().decode(Books.self, from: data)
-            viewModel.searchArray = results.items
+            viewModel.searchArray = results.items ?? []
             searchView.booksCollectionView.reloadData()
+            viewModel.deleteRealmObj()
+            
+            for book in results.items! {
+                
+                try realm.write {
+                    
+                    let realmObj = RealmBooks()
+                    
+                    realmObj.id             = book.id
+                    realmObj.title          = book.volumeInfo.title
+                    realmObj.subtitle       = book.volumeInfo.subtitle ?? ""
+                    realmObj.publishedDate  = book.volumeInfo.publishedDate ?? ""
+                    realmObj.smallThumbnail = book.volumeInfo.imageLinks.smallThumbnail
+                    realmObj.thumbnail      = book.volumeInfo.imageLinks.thumbnail
+                    
+                    realm.add(realmObj, update: .all)
+                }
+            }
             
             
         } catch {
@@ -75,6 +94,13 @@ extension SearchVC: UICollectionViewDataSource {
 
 extension SearchVC: UICollectionViewDelegate {
     
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let item = viewModel.searchArray[indexPath.item]
+        let vc = DetailsVC()
+        vc.volumeInfo = item.volumeInfo       
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
 }
 
 extension SearchVC: UICollectionViewDelegateFlowLayout {

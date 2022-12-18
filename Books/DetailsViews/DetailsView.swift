@@ -15,18 +15,15 @@ class DetailsView: UIView {
     @IBOutlet weak var bookDescription: UITextView!
     
     
-   private var viewModel = DetailsViewModel()
+    var viewModel = DetailsViewModel()
     
     
-    func setUpItems(item: Items) {
-//        viewModel.bookDetails?.publisher
-        publisherName.text   = item.volumeInfo.publisher
-        publishedDate.text   = item.volumeInfo.publishedDate
-        bookDescription.text = item.volumeInfo.description
-        
-        let url = URL(string: item.volumeInfo.imageLinks.smallThumbnail)
+    func updateUI() {
+        publisherName.text   = viewModel.bookDetails?.publisher
+        publishedDate.text   = viewModel.bookDetails?.publishedDate
+        bookDescription.text = viewModel.bookDetails?.description
+        let url = URL(string: viewModel.bookDetails?.imageLinks.smallThumbnail ?? "")
         bookImage.kf.setImage(with: url)
-        
         
     }
     

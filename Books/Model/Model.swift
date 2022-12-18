@@ -9,31 +9,31 @@ import Foundation
 import RealmSwift
 
 struct Books: Codable {
-    var kind : String
-    var totalItems : Int
-    var items : [Items]
+    var kind : String?
+    var totalItems : Int?
+    var items : [Items]?
     
 }
 
 struct Items: Codable {
-    var id : String
-    var volumeInfo : VolumeInfo
+    var id : String = ""
+    var volumeInfo : VolumeInfo = VolumeInfo()
     
 }
 
 struct VolumeInfo: Codable {
-    var title : String
+    var title : String = ""
     var subtitle: String?
     var description : String?
     var publisher : String?
     var publishedDate: String?
-    var imageLinks : ImageLinks
+    var imageLinks : ImageLinks = ImageLinks()
     var language: String?
 
 }
 struct ImageLinks: Codable {
-    var smallThumbnail: String
-    var thumbnail : String
+    var smallThumbnail: String = ""
+    var thumbnail : String = ""
     
 }
 

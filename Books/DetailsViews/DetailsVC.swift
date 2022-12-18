@@ -16,12 +16,12 @@ class DetailsVC: UIViewController {
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        updateUI()
+         updateUI()
         
     }
     
     func updateUI() {
-        
+
         detailsView.publisherName.text = volumeInfo?.publisher
         detailsView.publishedDate.text = volumeInfo?.publishedDate
         detailsView.bookDescription.text = volumeInfo?.description

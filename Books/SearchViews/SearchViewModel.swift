@@ -7,9 +7,12 @@
 
 import Foundation
 import UIKit
+import RealmSwift
 
 class SearchViewModel {
     
+    
+    private let realm = try! Realm()
     var searchArray = [Items]()
     
     
@@ -17,7 +20,14 @@ class SearchViewModel {
     
     
  
-
+    func deleteRealmObj() {
+        
+        try! realm.write {
+            
+            let deleteAllObjects = realm.objects(RealmBooks.self)
+            realm.delete(deleteAllObjects)
+        }
+    }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         print("The count is:\(searchArray.count)")

@@ -14,20 +14,32 @@ class HomeViewModel {
     
     var booksArray = [Items]()
     
-    var realmArray : Results<RealmBooks>?
-    
-    let realm = try! Realm()
+    private let realm = try! Realm()
     
     func getRealmObjects() {
-        let any = realm.objects(RealmBooks.self)
-        realmArray = any
-//        print(realmArray)
+        let realmObjects = realm.objects(RealmBooks.self)
+        booksArray = fillBooksArray(array: realmObjects)
+    }
+    
+    func fillBooksArray(array: Results<RealmBooks> ) -> [Items] {
         
+        for book in array {
+            var bookObj = Items()
+            
+            bookObj.id                                   = book.id
+            bookObj.volumeInfo.title                     = book.title
+            bookObj.volumeInfo.publishedDate             = book.publishedDate
+            bookObj.volumeInfo.description               = book.description
+            bookObj.volumeInfo.imageLinks.smallThumbnail = book.smallThumbnail
+            bookObj.volumeInfo.imageLinks.thumbnail      = book.thumbnail
+            self.booksArray.append(bookObj)
+        }
+        
+        return booksArray
     }
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//        print(realmArray?.count)
         return booksArray.count
     }
     

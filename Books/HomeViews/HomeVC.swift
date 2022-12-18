@@ -24,11 +24,7 @@ class HomeVC: UIViewController {
     var searchBar: UISearchBar = UISearchBar()
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        NetworkManager().fetchData(title: "great") { fetchedData in
-            self.handleResponse(data: fetchedData)
-        }
-        
+    
         homeView.booksCollectionView.register(UINib(nibName: "HomeBookCell", bundle: nil), forCellWithReuseIdentifier: "bookCell")
         
         homeView.lastSearch.layer.cornerRadius = 25
@@ -53,25 +49,21 @@ class HomeVC: UIViewController {
     func handleResponse(data: Data) {
         do {
             let results = try JSONDecoder().decode(Books.self, from: data)
-            viewModel.booksArray = results.items
+            viewModel.booksArray = results.items ?? []
             homeView.booksCollectionView.reloadData()
-            print(viewModel.booksArray.count)
             
-            for book in results.items {
+            for book in results.items! {
                 
                 try realm.write {
                     
-                    
-                    
                     let realmObj = RealmBooks()
                     
-                    realmObj.id = book.id
-                    realmObj.title = book.volumeInfo.title
-                    realmObj.subtitle = book.volumeInfo.subtitle ?? ""
-                    realmObj.publishedDate = book.volumeInfo.publishedDate ?? ""
+                    realmObj.id             = book.id
+                    realmObj.title          = book.volumeInfo.title
+                    realmObj.subtitle       = book.volumeInfo.subtitle ?? ""
+                    realmObj.publishedDate  = book.volumeInfo.publishedDate ?? ""
                     realmObj.smallThumbnail = book.volumeInfo.imageLinks.smallThumbnail
-                    realmObj.thumbnail = book.volumeInfo.imageLinks.thumbnail
-                    
+                    realmObj.thumbnail      = book.volumeInfo.imageLinks.thumbnail
                     
                     realm.add(realmObj, update: .all)
                 }
