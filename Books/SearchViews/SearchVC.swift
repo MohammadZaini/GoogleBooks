@@ -55,12 +55,13 @@ class SearchVC: UIViewController{
                     
                     let realmObj = RealmBooks()
                     
-                    realmObj.id             = book.id
-                    realmObj.title          = book.volumeInfo.title
-                    realmObj.subtitle       = book.volumeInfo.subtitle ?? ""
-                    realmObj.publishedDate  = book.volumeInfo.publishedDate ?? ""
-                    realmObj.smallThumbnail = book.volumeInfo.imageLinks.smallThumbnail
-                    realmObj.thumbnail      = book.volumeInfo.imageLinks.thumbnail
+                    realmObj.id              = book.id
+                    realmObj.title           = book.volumeInfo.title
+                    realmObj.subtitle        = book.volumeInfo.subtitle ?? ""
+                    realmObj.publishedDate   = book.volumeInfo.publishedDate ?? ""
+                    realmObj.bookDescription = book.volumeInfo.description ?? ""
+                    realmObj.smallThumbnail  = book.volumeInfo.imageLinks.smallThumbnail
+                    realmObj.thumbnail       = book.volumeInfo.imageLinks.thumbnail
                     
                     realm.add(realmObj, update: .all)
                 }
@@ -125,6 +126,12 @@ extension SearchVC: UISearchBarDelegate {
         if let text = searchBar.text {
     
             self.delegate?.updateLastSearch(searchKey: text)
+            viewModel.lastSearchArray.append(text)
+            try! realm.write{
+                let lastSearch = LastSearchKey()
+                lastSearch.lastSearch = text
+                realm.add(lastSearch)
+            }
             
             NetworkManager().fetchData(title: text) { fetchedData in
                 self.hanldeResponse(data: fetchedData)

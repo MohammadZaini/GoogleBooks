@@ -44,8 +44,10 @@ class RealmBooks: Object {
     @Persisted var subtitle: String = ""
     @Persisted var publisher: String = ""
     @Persisted var publishedDate: String = ""
+    @Persisted var bookDescription : String = ""
     @Persisted var smallThumbnail: String = ""
     @Persisted var thumbnail: String = ""
+    
     
 }
 

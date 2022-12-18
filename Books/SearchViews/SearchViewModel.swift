@@ -14,11 +14,25 @@ class SearchViewModel {
     
     private let realm = try! Realm()
     var searchArray = [Items]()
+    var lastSearchArray = [String]()
     
     
     
+    func returnLastSearch() {
+        let lastSearch = realm.objects(LastSearchKey.self)
+        lastSearchArray = convert(array: lastSearch)
+        
+    }
     
-    
+    func convert(array: Results<LastSearchKey> ) -> [String] {
+        var lastObj = String()
+        for last in array {
+            
+            lastObj = last.lastSearch
+            lastSearchArray.append(lastObj)
+        }
+        return lastSearchArray
+    }
  
     func deleteRealmObj() {
         

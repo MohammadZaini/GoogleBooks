@@ -16,6 +16,7 @@ protocol HomeVCDelegate {
 
 class HomeVC: UIViewController {
     
+    var viewModelS = SearchViewModel()
     @IBOutlet var homeView: HomeView!
     private let viewModel = HomeViewModel()
     
@@ -41,6 +42,9 @@ class HomeVC: UIViewController {
         homeView.booksCollectionView.delegate   = self
         
         viewModel.getRealmObjects()
+        
+        viewModelS.returnLastSearch()
+        homeView.lastSearch.text = viewModelS.lastSearchArray.last
         
     }
     
